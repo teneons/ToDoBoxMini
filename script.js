@@ -42,27 +42,23 @@ class CreateItem {
             let parentN = script1.parentNode;
         parentN.insertBefore(card, script1)
 
-        card.appendChild(cardBody);
-        cardBody.appendChild(inputGroup);
-        inputGroup.appendChild(itemText);
-        inputGroup.appendChild(btnEdit);
-            btnEdit.appendChild(iconEdit);
-        inputGroup.appendChild(btnDelete);
-            btnDelete.appendChild(iconDelete);
+        card.append(cardBody);
+        cardBody.append(inputGroup);
+        inputGroup.append(itemText);
+        inputGroup.append(btnEdit);
+            btnEdit.append(iconEdit);
+        inputGroup.append(btnDelete);
+            btnDelete.append(iconDelete);
     
 
         //put events on btn
         btnEdit.addEventListener('click', () => this.editCard(itemText));
-        btnDelete.addEventListener('click', () => this.deleteCard(card));
+        btnDelete.addEventListener('click', () => card.remove())
     }
 
     //events for btn
     editCard(itemText) {
         itemText.disabled = !itemText.disabled;
-    }
-
-    deleteCard(CreateItem) {
-        card.revoveChild(CreateItem);
     }
 
 }
