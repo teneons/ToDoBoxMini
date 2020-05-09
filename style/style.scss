@@ -1,5 +1,5 @@
 $black: #101010;
-$grey: #999999;
+$grey: #ECECEC;
 $white: #fff;
 
 
@@ -17,10 +17,18 @@ $white: #fff;
 
 
 body {
-    background-color: $black;
+    background-color: $grey;
 }
 
+
+.card {
+    
+}
+
+
 hr {
-    height: 1px;
+    height: 3px;
+    margin-top: 3%;
     background-color: $white;
+    border-color: $white;
 }

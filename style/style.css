@@ -11,20 +11,22 @@
 
 ::-moz-selection {
   color: #101010;
-  background-color: #999999;
+  background-color: #ECECEC;
 }
 
 ::selection {
   color: #101010;
-  background-color: #999999;
+  background-color: #ECECEC;
 }
 
 body {
-  background-color: #101010;
+  background-color: #ECECEC;
 }
 
 hr {
-  height: 1px;
+  height: 3px;
+  margin-top: 3%;
   background-color: #fff;
+  border-color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
