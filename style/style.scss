@@ -1,16 +1,16 @@
 $black: #101010;
+$grey9: #999999;
 $grey: #ECECEC;
-$white2: #fffffe;
-$white: #fff;
+$background: #fffffe;
 
 
 *{
     margin: 0;
     outline-style: none;
+    outline: none;
     user-select: none;
     box-sizing: border-box;
 }
-
 ::selection {
     color: $black;
     background-color: $grey;
@@ -18,7 +18,7 @@ $white: #fff;
 
 
 body {
-    background-color: $white2;
+    background-color: $background;
 }
 
 #containerAddItem {
@@ -38,10 +38,24 @@ body {
     }
 }
 
+//const
+#addNewItemInput, #addNewItemBtn {
+    box-shadow: none;
+    border-color: $grey;
+}
+
 #addNewItemInput {
     border-radius: 11px 0 0 11px;
+
+    &:focus {
+        border-color: $grey9;
+    }
 }
 
 #addNewItemBtn {
     border-radius: 0 11px 11px 0;
+
+    &:focus {
+        border-color: #ffb700;
+    }
 }
