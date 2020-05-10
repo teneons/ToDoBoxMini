@@ -73,3 +73,23 @@ function checkText() {
 
 
 addNewItemBtn.addEventListener('click', checkText)
+
+
+//JS for style
+//check on empty input
+addNewItemInput.oninput = () => {
+    if(addNewItemInput.value != '') {
+        addNewItemBtn.disabled = false;
+    } else addNewItemBtn.disabled = true;
+}
+
+//loading
+addNewItemBtn.addEventListener('click', () => {
+    addNewItemBtn.classList.add('loading');
+
+    setTimeout(() => {
+        addNewItemBtn.classList.remove('loading');
+    }, 200)
+
+    addNewItemBtn.disabled = true;
+})

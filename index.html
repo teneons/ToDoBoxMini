@@ -11,14 +11,15 @@
     <title>ToDoBox Mini</title>
 </head>
 <body>
-    <div class="card column col-4 col-mx-auto">
+    <div id="containerAddItem">
+    <div class="card column col-4 col-mx-auto" id="boxAddItem">
         <div class="card-body">
             <div class="input-group">
                 <input class="form-input input-sm" type="text" id="addNewItemInput" placeholder="Input item">
-                <button class="btn btn-sm c-hand bg-warning" id="addNewItemBtn"><i class="icon icon-plus"></i></button>
+                <button class="btn btn-sm c-hand bg-warning" id="addNewItemBtn" disabled><i class="icon icon-plus"></i></button>
             </div>
         </div>
     </div>
-    <hr>
+    </div>
 <script src="script.js"></script>
 </html>
