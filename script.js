@@ -10,7 +10,7 @@ class CreateItem {
 
     createCardElements(textItem) {
         let card = document.createElement('div');
-        card.classList.add('card', 'column', 'col-4', 'col-mx-auto');
+        card.classList.add('card', 'column', 'col-xs-10', 'col-sm-9', 'col-md-7', 'col-lg-7', 'col-xl-6', 'col-5', 'col-mx-auto');
 
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
@@ -19,20 +19,25 @@ class CreateItem {
         inputGroup.classList.add('input-group')
 
         let itemText = document.createElement('input');
-        itemText.classList.add('form-input', 'input-sm');
+        itemText.classList.add('form-input', 'input-md');
         itemText.type = 'text';
         itemText.id = 'itemText';
         itemText.value = textItem;
         itemText.disabled = true;
 
         let btnEdit = document.createElement('button');
-        btnEdit.classList.add('btn', 'btn-sm', 'c-hand', 'bg-success');
+        btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
+        btnEdit.id = 'btnEdit';
 
         let btnDelete = document.createElement('button');
-        btnDelete.classList.add('btn', 'btn-sm', 'c-hand', 'bg-error');
+        btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
+        btnDelete.id = 'btnDelete';
 
         let iconEdit = document.createElement('icon');
         iconEdit.classList.add('icon', 'icon-edit');
+
+        let iconEditDone = document.createElement('icon');
+        iconEditDone.classList.add('icon', 'icon-check')
 
         let iconDelete = document.createElement('icon');
         iconDelete.classList.add('icon', 'icon-delete');
