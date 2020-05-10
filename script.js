@@ -10,7 +10,8 @@ class CreateItem {
 
     createCardElements(textItem) {
         let card = document.createElement('div');
-        card.classList.add('card', 'column', 'col-xs-10', 'col-sm-9', 'col-md-7', 'col-lg-7', 'col-xl-6', 'col-5', 'col-mx-auto');
+        card.classList.add('card', 'column', 'col-xs-9', 'col-sm-8', 'col-md-6', 'col-lg-6', 'col-xl-5', 'col-4', 'col-mx-auto');
+        card.id = 'itemCard';
 
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
@@ -47,6 +48,8 @@ class CreateItem {
             let parentN = script1.parentNode;
         parentN.insertBefore(card, script1)
 
+        const allItemsBox = document.getElementById('allItemsBox');
+        allItemsBox.append(card);
         card.append(cardBody);
         cardBody.append(inputGroup);
         inputGroup.append(itemText);
