@@ -20,10 +20,6 @@
   background-color: #ECECEC;
 }
 
-body {
-  background-color: #fffffe;
-}
-
 #containerAddItem {
   height: 15vh;
   width: 100%;
@@ -45,18 +41,12 @@ body {
           box-shadow: 0px 0px 37px -14px rgba(0, 0, 0, 0.75);
 }
 
-#addNewItemInput, #addNewItemBtn {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-color: #ECECEC;
-}
-
 #addNewItemInput {
   border-radius: 11px 0 0 11px;
 }
 
 #addNewItemInput:focus {
-  border-color: #999999;
+  border-color: #ECECEC;
 }
 
 #addNewItemBtn {
@@ -69,7 +59,7 @@ body {
 
 #allItemsBox {
   width: 100%;
-  height: 100vh;
+  height: 82vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,15 +70,41 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 1%;
+  margin-top: 1.5%;
 }
 
 #itemCard {
-  margin: 1%;
+  margin: 0.5%;
+}
+
+#itemCard:first-child {
+  border-radius: 11px 11px 0 0;
+}
+
+#itemCard:last-child {
+  border-radius: 0 0 11px 11px;
+}
+
+#itemText:focus {
+  border-color: #ECECEC;
+}
+
+#btnEdit:focus {
+  border-color: #32b643;
+}
+
+#btnDelete:focus {
+  border-color: #e85600;
 }
 
 #iconEditDone {
   width: 14.4px;
   height: 14.4px;
+}
+
+#addNewItemInput, #addNewItemBtn, #itemText, #btnEdit, #btnDelete {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #ECECEC;
 }
 /*# sourceMappingURL=style.css.map */
