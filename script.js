@@ -4,8 +4,7 @@ let addNewItemBtn = document.getElementById('addNewItemBtn');
 
 class CreateItem {
     constructor(textItem) {
-        this.createCardElements(textItem)
-
+        this.createCardElements(textItem);
     }
 
     createCardElements(textItem) {
@@ -37,14 +36,16 @@ class CreateItem {
         let iconEdit = document.createElement('icon');
         iconEdit.classList.add('icon', 'icon-edit');
 
-        let iconEditDone = document.createElement('icon');
-        iconEditDone.classList.add('icon', 'icon-check')
-
         let iconDelete = document.createElement('icon');
         iconDelete.classList.add('icon', 'icon-delete');
 
+        let iconEditDone = document.createElement('object');
+        iconEditDone.data = './style/iconEditDone.svg';
+        iconEditDone.type = 'image/svg+xml';
+        iconEditDone.id = 'iconEditDone';
+
         //add elements in box
-            const script1 = document.getElementsByTagName('script')[0]; //for fixing insert 1st el. in html
+        const script1 = document.getElementsByTagName('script')[0]; //for fixing insert 1st el. in html
             let parentN = script1.parentNode;
         parentN.insertBefore(card, script1)
 
@@ -54,20 +55,26 @@ class CreateItem {
         cardBody.append(inputGroup);
         inputGroup.append(itemText);
         inputGroup.append(btnEdit);
-            btnEdit.append(iconEdit);
+            //btnEdit.append(iconEdit);
+            btnEdit.append(iconEditDone)
         inputGroup.append(btnDelete);
             btnDelete.append(iconDelete);
     
 
         //put events on btn
-        btnEdit.addEventListener('click', () => this.editCard(itemText));
+        btnEdit.addEventListener('click', () => {
+            this.editCard(itemText, iconEdit);
+        });
+
         btnDelete.addEventListener('click', () => card.remove())
     }
 
     //events for btn
-    editCard(itemText) {
+    editCard(itemText, iconEdit) {
+        //iconEdit.classList.remove('icon-edit');
+        //iconEdit.classList.add('icon-check');
         itemText.disabled = !itemText.disabled;
-    }
+    }1
 
 }
 
