@@ -55,11 +55,10 @@ class CreateItem {
         cardBody.append(inputGroup);
         inputGroup.append(itemText);
         inputGroup.append(btnEdit);
-            //btnEdit.append(iconEdit);
-            btnEdit.append(iconEditDone)
+            btnEdit.append(iconEdit);
         inputGroup.append(btnDelete);
             btnDelete.append(iconDelete);
-    
+
 
         //put events on btn
         btnEdit.addEventListener('click', () => {
@@ -71,10 +70,17 @@ class CreateItem {
 
     //events for btn
     editCard(itemText, iconEdit) {
-        //iconEdit.classList.remove('icon-edit');
-        //iconEdit.classList.add('icon-check');
+        iconEdit.classList.remove('icon-edit');
+        iconEdit.classList.add('icon-check');
+
+        if(!itemText.disabled) {
+            iconEdit.classList.remove('icon-check');
+            iconEdit.classList.add('icon-edit');
+        }
+
         itemText.disabled = !itemText.disabled;
-    }1
+
+    }
 
 }
 
@@ -86,8 +92,21 @@ function checkText() {
     }
 }
 
-
 addNewItemBtn.addEventListener('click', checkText)
+
+/*
+    //localStorage
+    let itemsArray = [];
+    
+    //get LocSt.
+    let allItemsfromLS = Object.entries(localStorage)
+
+    //set LocSt.
+    itemsArray.push(textItem);
+    localStorage.setItem('id2', JSON.stringify(itemsArray));
+    
+    //remove by LocSt.
+*/
 
 
 //JS for style
