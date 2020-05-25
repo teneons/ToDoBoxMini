@@ -3,15 +3,17 @@ let addNewItemBtn = document.getElementById('addNewItemBtn');
 
 
 class CreateItem {
-    constructor(textItem) {
-        this.createCardElements(textItem);
+    constructor(textItem, idItem) {
+        this.createCardElements(textItem, idItem);
     }
 
-    createCardElements(textItem) {
+    createCardElements(textItem, idItem) {
         let card = document.createElement('div');
         card.classList.add('card', 'column', 'col-xs-9', 'col-sm-8', 'col-md-6', 'col-lg-6', 'col-xl-5', 'col-4', 'col-mx-auto');
         card.id = 'itemCard';
+        card.title = idItem;
 
+        
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
@@ -24,6 +26,7 @@ class CreateItem {
         itemText.id = 'itemText';
         itemText.value = textItem;
         itemText.disabled = true;
+        
 
         let btnEdit = document.createElement('button');
         btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
@@ -65,7 +68,11 @@ class CreateItem {
             this.editCard(itemText, iconEdit);
         });
 
-        btnDelete.addEventListener('click', () => card.remove())
+        //remove
+        btnDelete.addEventListener('click', () => {
+            localStorage.removeItem(card.title)
+            card.remove();
+        })
     }
 
     //events for btn
@@ -84,30 +91,24 @@ class CreateItem {
 
 }
 
-
 function checkText() {
     if(addNewItemInput.value != ""){
-        new CreateItem(addNewItemInput.value);
+            let idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
+        localStorage.setItem(idItem, JSON.stringify(addNewItemInput.value)); //set to LocSt
+        new CreateItem(addNewItemInput.value, idItem);
         addNewItemInput.value = "";
     }
 }
 
 addNewItemBtn.addEventListener('click', checkText)
 
-/*
-    //localStorage
-    let itemsArray = [];
-    
-    //get LocSt.
-    let allItemsfromLS = Object.entries(localStorage)
 
-    //set LocSt.
-    itemsArray.push(textItem);
-    localStorage.setItem('id2', JSON.stringify(itemsArray));
-    
-    //remove by LocSt.
-*/
-
+window.onload() = () => {
+    for (let i = 0 in localStorage.key){
+        localStorage.getItem(i, localStorage.key)
+    }
+    new CreateItem()
+}
 
 //JS for style
 //check on empty input
