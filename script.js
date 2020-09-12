@@ -103,11 +103,11 @@ function checkText() {
 addNewItemBtn.addEventListener('click', checkText)
 
 
-window.onload() = () => {
-    for (let i = 0 in localStorage.key){
-        localStorage.getItem(i, localStorage.key)
-    }
-    new CreateItem()
+window.onload = () => {
+    // for (let i = 0 in localStorage.key){
+    //     localStorage.getItem(i, localStorage.key)
+    // }
+    //new CreateItem()
 }
 
 //JS for style
