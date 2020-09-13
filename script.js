@@ -65,11 +65,11 @@ class CreateItem {
         //put events on btn
         btnEdit.addEventListener('click', () => {
             this.editCard(itemText, iconEdit);
+            console.log(localStorage.getItem(card.id))
         });
 
         //remove
         btnDelete.addEventListener('click', () => {
-            console.log(card.id)
             localStorage.removeItem(card.id)
             card.remove();
         })
@@ -93,8 +93,9 @@ class CreateItem {
 
 function checkText() {
     if(addNewItemInput.value != ""){
-            let idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
-        localStorage.setItem(idItem, JSON.stringify(addNewItemInput.value)); //set to LocSt
+            const idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
+            const itemArr = [addNewItemInput.value, false, new Date()]
+        localStorage.setItem(idItem, JSON.stringify(itemArr)); //set to LocSt
         new CreateItem(addNewItemInput.value, idItem);
         addNewItemInput.value = "";
     }
