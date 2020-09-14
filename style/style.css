@@ -36,11 +36,6 @@
   border-radius: 15px;
 }
 
-#boxAddItem:hover {
-  -webkit-box-shadow: 0px 0px 37px -14px rgba(0, 0, 0, 0.75);
-          box-shadow: 0px 0px 37px -14px rgba(0, 0, 0, 0.75);
-}
-
 #addNewItemInput {
   border-radius: 11px 0 0 11px;
 }

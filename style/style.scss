@@ -31,16 +31,11 @@ $white: #fff;
     width: 100%;
     display: flex;
     align-items: center;
-
-    background-color: $grey;
+		background-color: $grey;
 }
 
 #boxAddItem {
     border-radius: 15px;
-    
-    &:hover {
-        box-shadow: 0px 0px 37px -14px rgba(0,0,0,0.75);
-    }
 }
 
 #addNewItemInput {
@@ -61,7 +56,7 @@ $white: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.5%;
+		margin-top: 1.5%;
 }
 
 #itemCard {
