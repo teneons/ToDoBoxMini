@@ -135,7 +135,10 @@ function checkText() {
     }
 }
 
+//btn/enter add new item
 addNewItemBtn.addEventListener('click', checkText)
+addNewItemInput.addEventListener('keydown', (event) => {
+    if(event.key == 'Enter') checkText()})
 
 
 window.onload = () => {
