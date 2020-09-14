@@ -79,6 +79,10 @@ $grey: #ECECEC;
     @include focusBorder($grey);
 }
 
+#btnDone {
+    @include focusBorder(#ffb700)
+}
+
 #btnEdit {
     @include focusBorder(#32b643);
 }
@@ -94,6 +98,6 @@ $grey: #ECECEC;
 
 
 //const for hide Spectr delault border
-#addNewItemInput, #addNewItemBtn, #itemText, #btnEdit, #btnDelete {
+#addNewItemInput, #addNewItemBtn, #itemText, #btnDone, #btnEdit, #btnDelete {
     @include hideSpctrDefaultBorder($grey);
 }

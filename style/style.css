@@ -89,6 +89,10 @@
   border-color: #ECECEC;
 }
 
+#btnDone:focus {
+  border-color: #ffb700;
+}
+
 #btnEdit:focus {
   border-color: #32b643;
 }
@@ -102,7 +106,7 @@
   height: 14.4px;
 }
 
-#addNewItemInput, #addNewItemBtn, #itemText, #btnEdit, #btnDelete {
+#addNewItemInput, #addNewItemBtn, #itemText, #btnDone, #btnEdit, #btnDelete {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-color: #ECECEC;

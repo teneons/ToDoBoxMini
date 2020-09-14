@@ -27,6 +27,10 @@ class CreateItem {
         itemText.disabled = true;
         
 
+        const btnDone = document.createElement('button');
+        btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
+        btnDone.id = 'btnDone'
+
         let btnEdit = document.createElement('button');
         btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
         btnEdit.id = 'btnEdit';
@@ -34,6 +38,10 @@ class CreateItem {
         let btnDelete = document.createElement('button');
         btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
         btnDelete.id = 'btnDelete';
+
+
+        let iconDone = document.createElement('icon');
+        iconDone.classList.add('icon', 'icon-check')
 
         let iconEdit = document.createElement('icon');
         iconEdit.classList.add('icon', 'icon-edit');
@@ -56,6 +64,8 @@ class CreateItem {
         card.append(cardBody);
         cardBody.append(inputGroup);
         inputGroup.append(itemText);
+        inputGroup.append(btnDone)
+            btnDone.append(iconDone)
         inputGroup.append(btnEdit);
             btnEdit.append(iconEdit);
         inputGroup.append(btnDelete);
