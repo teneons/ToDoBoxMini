@@ -105,10 +105,16 @@ class CreateItem {
         itemText.disabled = !itemText.disabled;
 
         //new txt in LS
-        let itm = JSON.parse(localStorage.getItem(id))
-        itm.txtItem = itemText.value
-        localStorage.setItem(id, JSON.stringify(itm))
-        console.log(localStorage.getItem(id))
+        let itm = JSON.parse(localStorage.getItem(id));
+        itm.txtItem = itemText.value;
+
+        try {
+            localStorage.setItem(id, JSON.stringify(itm))
+        } catch (e) {
+            if(e == 'QUOTA_EXCEEDED_ERR') {
+                alert('ERROR - your local storage was crowded')
+            }
+        }
     }
 
     doneCard(id) {
@@ -119,7 +125,13 @@ class CreateItem {
         } else item.statusDone = false
 
         let itemNew = JSON.stringify(item)
-        JSON.stringify(localStorage.setItem(id, itemNew))
+        try {
+            JSON.stringify(localStorage.setItem(id, itemNew))
+        } catch(e) {
+            if(e == 'QUOTA_EXCEEDED_ERR') {
+                alert('ERROR - your local storage was crowded')
+            }
+        }
     }
 
 }
@@ -129,8 +141,17 @@ function checkText() {
             const idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
             const statusDone = false;
             const itemObj = {txtItem: addNewItemInput.value, statusDone: statusDone, createDate: new Date()};
-        localStorage.setItem(idItem, JSON.stringify(itemObj)); //set to LocSt
-        new CreateItem(addNewItemInput.value, idItem, statusDone);
+        
+        //set to LocSt
+        try {
+            localStorage.setItem(idItem, JSON.stringify(itemObj));
+        } catch(e) {
+            if(e == 'QUOTA_EXCEEDED_ERR') {
+                alert('ERROR - your local storage was crowded')
+            }
+        }
+
+        new CreateItem(addNewItemInput.value, idItem);
         addNewItemInput.value = "";
     }
 }
