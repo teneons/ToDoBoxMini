@@ -49,7 +49,14 @@ class CreateItem {
           iconEdit.classList.add('icon', 'icon-edit');
 
         const iconDelete = document.createElement('icon');
-          iconDelete.classList.add('icon', 'icon-delete');
+					iconDelete.classList.add('icon', 'icon-delete');
+					
+				//time field
+				const blockItemTime = document.createElement('div');
+				const iconItemTime = document.createElement('icon');
+					iconItemTime.classList.add('icon', 'icon-time');
+				const txtItemTime = document.createElement('span');
+				
 
         //add elements in box
         const script1 = document.getElementsByTagName('script')[0]; //for fixing insert 1st el. in html
@@ -66,7 +73,10 @@ class CreateItem {
         inputGroup.append(btnEdit);
           btnEdit.append(iconEdit);
         inputGroup.append(btnDelete);
-          btnDelete.append(iconDelete);
+					btnDelete.append(iconDelete);
+				cardBody.append(blockItemTime);
+				blockItemTime.append(iconItemTime);
+				blockItemTime.append(txtItemTime);
 
 
         //put events on btn
