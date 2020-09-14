@@ -26,30 +26,30 @@ class CreateItem {
         itemText.value = textItem;
         itemText.disabled = true;
         
-
+        //create btns
         const btnDone = document.createElement('button');
         btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
         btnDone.id = 'btnDone'
 
-        let btnEdit = document.createElement('button');
+        const btnEdit = document.createElement('button');
         btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
         btnEdit.id = 'btnEdit';
 
-        let btnDelete = document.createElement('button');
+        const btnDelete = document.createElement('button');
         btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
         btnDelete.id = 'btnDelete';
 
-
-        let iconDone = document.createElement('icon');
+        //set icons for btn
+        const iconDone = document.createElement('icon');
         iconDone.classList.add('icon', 'icon-check')
 
-        let iconEdit = document.createElement('icon');
+        const iconEdit = document.createElement('icon');
         iconEdit.classList.add('icon', 'icon-edit');
 
-        let iconDelete = document.createElement('icon');
+        const iconDelete = document.createElement('icon');
         iconDelete.classList.add('icon', 'icon-delete');
 
-        let iconEditDone = document.createElement('object');
+        const iconEditDone = document.createElement('object');
         iconEditDone.data = './style/iconEditDone.svg';
         iconEditDone.type = 'image/svg+xml';
         iconEditDone.id = 'iconEditDone';
