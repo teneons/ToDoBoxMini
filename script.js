@@ -30,6 +30,7 @@ class CreateItem {
         const btnDone = document.createElement('button');
         btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
         btnDone.id = 'btnDone'
+        
 
         const btnEdit = document.createElement('button');
         btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
@@ -73,6 +74,12 @@ class CreateItem {
 
 
         //put events on btn
+        btnDone.addEventListener('click', () => {
+            this.doneCard(card.id, card.Done)
+        })
+
+
+        //edit
         btnEdit.addEventListener('click', () => {
             this.editCard(itemText, iconEdit, card.id);
         });
@@ -104,14 +111,26 @@ class CreateItem {
         console.log(localStorage.getItem(id))
     }
 
+    doneCard(id) {
+        let item = JSON.parse(localStorage.getItem(id))
+
+        if(item.statusDone == false) {
+            item.statusDone = true
+        } else item.statusDone = false
+
+        let itemNew = JSON.stringify(item)
+        JSON.stringify(localStorage.setItem(id, itemNew))
+    }
+
 }
 
 function checkText() {
     if(addNewItemInput.value != ""){
             const idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
-            const itemObj = {txtItem: addNewItemInput.value, statusDone: false, createDate: new Date()}
+            const statusDone = false;
+            const itemObj = {txtItem: addNewItemInput.value, statusDone: statusDone, createDate: new Date()};
         localStorage.setItem(idItem, JSON.stringify(itemObj)); //set to LocSt
-        new CreateItem(addNewItemInput.value, idItem);
+        new CreateItem(addNewItemInput.value, idItem, statusDone);
         addNewItemInput.value = "";
     }
 }
