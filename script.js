@@ -56,7 +56,7 @@ class CreateItem {
 				const iconItemTime = document.createElement('icon');
 					iconItemTime.classList.add('icon', 'icon-time');
 				const txtItemTime = document.createElement('span');
-				
+
 
         //add elements in box
         const script1 = document.getElementsByTagName('script')[0]; //for fixing insert 1st el. in html
@@ -81,7 +81,7 @@ class CreateItem {
 
         //put events on btn
         btnDone.addEventListener('click', () => {
-          this.doneCard(card.idItem, card.Done)
+          this.doneCard(card.idItem)
         })
 
 
