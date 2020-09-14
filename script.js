@@ -41,7 +41,7 @@ class CreateItem {
 
         //set icons for btn
         const iconDone = document.createElement('icon');
-        iconDone.classList.add('icon', 'icon-check')
+        iconDone.classList.add('icon', 'icon-emoji')
 
         const iconEdit = document.createElement('icon');
         iconEdit.classList.add('icon', 'icon-edit');
