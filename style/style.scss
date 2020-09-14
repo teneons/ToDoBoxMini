@@ -1,5 +1,6 @@
 $black: #101010;
 $grey: #ECECEC;
+$white: #fff;
 
 @mixin focusBorder ($borderColorFocus) {
     &:focus {
@@ -64,7 +65,8 @@ $grey: #ECECEC;
 }
 
 #itemCard {
-    margin: 0.5%;
+		margin: 0.5%;
+		background-color: $grey;
 
     &:first-child {
         border-radius: 11px 11px 0 0;
@@ -76,11 +78,20 @@ $grey: #ECECEC;
 }
 
 #itemText {
-    @include focusBorder($grey);
+		border-radius: 9px;
+		background-color: $white;
+
+		
+		&:disabled {
+			background-color: $grey;
+			color: $black;
+			font-weight: bold;
+		}
 }
 
 #btnDone {
-    @include focusBorder(#ffb700)
+		@include focusBorder(#ffb700);
+		border-radius: 7px 0 0 7px;
 }
 
 #btnEdit {
@@ -88,12 +99,8 @@ $grey: #ECECEC;
 }
 
 #btnDelete{
-    @include focusBorder(#e85600);
-}
-
-#iconEditDone {
-    width: 14.4px;
-    height: 14.4px;
+		@include focusBorder(#e85600);
+		border-radius: 0 7px 7px 0;
 }
 
 

@@ -75,6 +75,7 @@
 
 #itemCard {
   margin: 0.5%;
+  background-color: #ECECEC;
 }
 
 #itemCard:first-child {
@@ -85,8 +86,19 @@
   border-radius: 0 0 11px 11px;
 }
 
-#itemText:focus {
-  border-color: #ECECEC;
+#itemText {
+  border-radius: 9px;
+  background-color: #fff;
+}
+
+#itemText:disabled {
+  background-color: #ECECEC;
+  color: #101010;
+  font-weight: bold;
+}
+
+#btnDone {
+  border-radius: 7px 0 0 7px;
 }
 
 #btnDone:focus {
@@ -97,13 +109,12 @@
   border-color: #32b643;
 }
 
-#btnDelete:focus {
-  border-color: #e85600;
+#btnDelete {
+  border-radius: 0 7px 7px 0;
 }
 
-#iconEditDone {
-  width: 14.4px;
-  height: 14.4px;
+#btnDelete:focus {
+  border-color: #e85600;
 }
 
 #addNewItemInput, #addNewItemBtn, #itemText, #btnDone, #btnEdit, #btnDelete {
