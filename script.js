@@ -10,7 +10,8 @@ class CreateItem {
     createCardElements(textItem, idItem) {
         const card = document.createElement('div');
         	card.classList.add('card', 'column', 'col-xs-9', 'col-sm-8', 'col-md-6', 'col-lg-6', 'col-xl-5', 'col-4', 'col-mx-auto');
-        	card.id = idItem;
+					card.id = 'itemCard';
+					card.idItem = idItem;
 
         
         const cardBody = document.createElement('div');
@@ -70,18 +71,18 @@ class CreateItem {
 
         //put events on btn
         btnDone.addEventListener('click', () => {
-          this.doneCard(card.id, card.Done)
+          this.doneCard(card.idItem, card.Done)
         })
 
 
         //edit
         btnEdit.addEventListener('click', () => {
-          this.editCard(itemText, iconEdit, card.id);
+          this.editCard(itemText, iconEdit, card.idItem);
         });
 
         //remove
         btnDelete.addEventListener('click', () => {
-          localStorage.removeItem(card.id)
+          localStorage.removeItem(card.idItem)
           card.remove();
         })
     }
