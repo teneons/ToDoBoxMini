@@ -29,17 +29,19 @@ class CreateItem {
         
         //create btns
         const btnDone = document.createElement('button');
-          btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
-          btnDone.id = 'btnDone'
+          btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning', 'tooltip', 'tooltip-bottom');
+					btnDone.id = 'btnDone';
+					btnDone.setAttribute('data-tooltip', 'Done');
         
-
         const btnEdit = document.createElement('button');
-          btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
-          btnEdit.id = 'btnEdit';
+          btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success', 'tooltip', 'tooltip-bottom');
+					btnEdit.id = 'btnEdit';
+					btnEdit.setAttribute('data-tooltip', 'Edit');
 
         const btnDelete = document.createElement('button');
-          btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
-          btnDelete.id = 'btnDelete';
+          btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error', 'tooltip', 'tooltip-bottom');
+					btnDelete.id = 'btnDelete';
+					btnDelete.setAttribute('data-tooltip', 'Remove');
 
         //set icons for btn
         const iconDone = document.createElement('icon');
