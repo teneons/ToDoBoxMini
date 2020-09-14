@@ -8,56 +8,51 @@ class CreateItem {
     }
 
     createCardElements(textItem, idItem) {
-        let card = document.createElement('div');
-        card.classList.add('card', 'column', 'col-xs-9', 'col-sm-8', 'col-md-6', 'col-lg-6', 'col-xl-5', 'col-4', 'col-mx-auto');
-        card.id = idItem;
+        const card = document.createElement('div');
+        	card.classList.add('card', 'column', 'col-xs-9', 'col-sm-8', 'col-md-6', 'col-lg-6', 'col-xl-5', 'col-4', 'col-mx-auto');
+        	card.id = idItem;
 
         
-        let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
+        const cardBody = document.createElement('div');
+        	cardBody.classList.add('card-body');
 
-        let inputGroup = document.createElement('div');
-        inputGroup.classList.add('input-group')
+        const inputGroup = document.createElement('div');
+        	inputGroup.classList.add('input-group')
 
-        let itemText = document.createElement('input');
-        itemText.classList.add('form-input', 'input-md');
-        itemText.type = 'text';
-        itemText.id = 'itemText';
-        itemText.value = textItem;
-        itemText.disabled = true;
+        const itemText = document.createElement('input');
+          itemText.classList.add('form-input', 'input-md');
+          itemText.type = 'text';
+          itemText.id = 'itemText';
+          itemText.value = textItem;
+          itemText.disabled = true;
         
         //create btns
         const btnDone = document.createElement('button');
-        btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
-        btnDone.id = 'btnDone'
+          btnDone.classList.add('btn', 'btn-md', 'c-hand', 'bg-warning')
+          btnDone.id = 'btnDone'
         
 
         const btnEdit = document.createElement('button');
-        btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
-        btnEdit.id = 'btnEdit';
+          btnEdit.classList.add('btn', 'btn-md', 'c-hand', 'bg-success');
+          btnEdit.id = 'btnEdit';
 
         const btnDelete = document.createElement('button');
-        btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
-        btnDelete.id = 'btnDelete';
+          btnDelete.classList.add('btn', 'btn-md', 'c-hand', 'bg-error');
+          btnDelete.id = 'btnDelete';
 
         //set icons for btn
         const iconDone = document.createElement('icon');
-        iconDone.classList.add('icon', 'icon-emoji')
+          iconDone.classList.add('icon', 'icon-emoji')
 
         const iconEdit = document.createElement('icon');
-        iconEdit.classList.add('icon', 'icon-edit');
+          iconEdit.classList.add('icon', 'icon-edit');
 
         const iconDelete = document.createElement('icon');
-        iconDelete.classList.add('icon', 'icon-delete');
-
-        const iconEditDone = document.createElement('object');
-        iconEditDone.data = './style/iconEditDone.svg';
-        iconEditDone.type = 'image/svg+xml';
-        iconEditDone.id = 'iconEditDone';
+          iconDelete.classList.add('icon', 'icon-delete');
 
         //add elements in box
         const script1 = document.getElementsByTagName('script')[0]; //for fixing insert 1st el. in html
-            let parentN = script1.parentNode;
+          let parentN = script1.parentNode;
         parentN.insertBefore(card, script1)
 
         const allItemsBox = document.getElementById('allItemsBox');
@@ -66,28 +61,28 @@ class CreateItem {
         cardBody.append(inputGroup);
         inputGroup.append(itemText);
         inputGroup.append(btnDone)
-            btnDone.append(iconDone)
+          btnDone.append(iconDone)
         inputGroup.append(btnEdit);
-            btnEdit.append(iconEdit);
+          btnEdit.append(iconEdit);
         inputGroup.append(btnDelete);
-            btnDelete.append(iconDelete);
+          btnDelete.append(iconDelete);
 
 
         //put events on btn
         btnDone.addEventListener('click', () => {
-            this.doneCard(card.id, card.Done)
+          this.doneCard(card.id, card.Done)
         })
 
 
         //edit
         btnEdit.addEventListener('click', () => {
-            this.editCard(itemText, iconEdit, card.id);
+          this.editCard(itemText, iconEdit, card.id);
         });
 
         //remove
         btnDelete.addEventListener('click', () => {
-            localStorage.removeItem(card.id)
-            card.remove();
+          localStorage.removeItem(card.id)
+          card.remove();
         })
     }
 
@@ -98,8 +93,8 @@ class CreateItem {
         iconEdit.classList.add('icon-check');
 
         if(!itemText.disabled) {
-            iconEdit.classList.remove('icon-check');
-            iconEdit.classList.add('icon-edit');
+          iconEdit.classList.remove('icon-check');
+          iconEdit.classList.add('icon-edit');
         }
 
         itemText.disabled = !itemText.disabled;
@@ -109,10 +104,10 @@ class CreateItem {
         itm.txtItem = itemText.value;
 
         try {
-            localStorage.setItem(id, JSON.stringify(itm))
+          localStorage.setItem(id, JSON.stringify(itm))
         } catch (e) {
             if(e == 'QUOTA_EXCEEDED_ERR') {
-                alert('ERROR - your local storage was crowded')
+              alert('ERROR - your local storage was crowded')
             }
         }
     }
@@ -121,16 +116,16 @@ class CreateItem {
         let item = JSON.parse(localStorage.getItem(id))
 
         if(item.statusDone == false) {
-            item.statusDone = true
+          item.statusDone = true
         } else item.statusDone = false
 
         let itemNew = JSON.stringify(item)
         try {
             JSON.stringify(localStorage.setItem(id, itemNew))
         } catch(e) {
-            if(e == 'QUOTA_EXCEEDED_ERR') {
-                alert('ERROR - your local storage was crowded')
-            }
+          if(e == 'QUOTA_EXCEEDED_ERR') {
+              alert('ERROR - your local storage was crowded')
+          }
         }
     }
 
@@ -144,11 +139,11 @@ function checkText() {
         
         //set to LocSt
         try {
-            localStorage.setItem(idItem, JSON.stringify(itemObj));
+          localStorage.setItem(idItem, JSON.stringify(itemObj));
         } catch(e) {
-            if(e == 'QUOTA_EXCEEDED_ERR') {
-                alert('ERROR - your local storage was crowded')
-            }
+          if(e == 'QUOTA_EXCEEDED_ERR') {
+              alert('ERROR - your local storage was crowded')
+          }
         }
 
         new CreateItem(addNewItemInput.value, idItem);
@@ -159,7 +154,7 @@ function checkText() {
 //btn/enter add new item
 addNewItemBtn.addEventListener('click', checkText)
 addNewItemInput.addEventListener('keydown', (event) => {
-    if(event.key == 'Enter') checkText()})
+  if(event.key == 'Enter') checkText()})
 
 
 window.onload = () => {
@@ -172,9 +167,9 @@ window.onload = () => {
 //JS for style
 //check on empty input
 addNewItemInput.oninput = () => {
-    if(addNewItemInput.value != '') {
-        addNewItemBtn.disabled = false;
-    } else addNewItemBtn.disabled = true;
+  if(addNewItemInput.value != '') {
+      addNewItemBtn.disabled = false;
+  } else addNewItemBtn.disabled = true;
 }
 
 //loading
@@ -182,7 +177,7 @@ addNewItemBtn.addEventListener('click', () => {
     addNewItemBtn.classList.add('loading');
 
     setTimeout(() => {
-        addNewItemBtn.classList.remove('loading');
+      addNewItemBtn.classList.remove('loading');
     }, 200)
 
     addNewItemBtn.disabled = true;
