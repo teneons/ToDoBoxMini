@@ -58,6 +58,8 @@ class CreateItem {
 				const iconItemTime = document.createElement('icon');
 					iconItemTime.classList.add('icon', 'icon-time');
 				const txtItemTime = document.createElement('span');
+					let itmTime = JSON.parse(localStorage.getItem(idItem))
+					txtItemTime.innerText = itmTime.createDate
 
 
         //add elements in box
