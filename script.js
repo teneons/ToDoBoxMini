@@ -64,8 +64,7 @@ class CreateItem {
 
         //put events on btn
         btnEdit.addEventListener('click', () => {
-            this.editCard(itemText, iconEdit);
-            console.log(localStorage.getItem(card.id))
+            this.editCard(itemText, iconEdit, card.id);
         });
 
         //remove
@@ -76,7 +75,8 @@ class CreateItem {
     }
 
     //events for btn
-    editCard(itemText, iconEdit) {
+    editCard(itemText, iconEdit, id) {
+        //change icon
         iconEdit.classList.remove('icon-edit');
         iconEdit.classList.add('icon-check');
 
@@ -87,6 +87,11 @@ class CreateItem {
 
         itemText.disabled = !itemText.disabled;
 
+        //new txt in LS
+        let itm = JSON.parse(localStorage.getItem(id))
+        itm.txtItem = itemText.value
+        localStorage.setItem(id, JSON.stringify(itm))
+        console.log(localStorage.getItem(id))
     }
 
 }
@@ -94,8 +99,8 @@ class CreateItem {
 function checkText() {
     if(addNewItemInput.value != ""){
             const idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
-            const itemArr = [addNewItemInput.value, false, new Date()]
-        localStorage.setItem(idItem, JSON.stringify(itemArr)); //set to LocSt
+            const itemObj = {txtItem: addNewItemInput.value, statusDone: false, createDate: new Date()}
+        localStorage.setItem(idItem, JSON.stringify(itemObj)); //set to LocSt
         new CreateItem(addNewItemInput.value, idItem);
         addNewItemInput.value = "";
     }
