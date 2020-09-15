@@ -149,8 +149,11 @@ class CreateItem {
 function checkText() {
     if(addNewItemInput.value != ""){
             const idItem = Math.floor(Math.random() * 16777215).toString(16); //key for obj for LocalStorage
-            const statusDone = false;
-            const itemObj = {txtItem: addNewItemInput.value, statusDone: statusDone, createDate: new Date()};
+						const statusDone = false;
+						const nDate = new Date();
+							const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+							const createDate = `${nDate.getHours()}:${nDate.getMinutes()} \t ${nDate.getDate()} ${monthNames[nDate.getMonth()]} ${nDate.getFullYear()}`
+            const itemObj = {txtItem: addNewItemInput.value, statusDone: statusDone, createDate: createDate};
         
         //set to LocSt
         try {
