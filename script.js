@@ -3,15 +3,16 @@ let addNewItemBtn = document.getElementById('addNewItemBtn');
 
 
 class CreateItem {
-    constructor(textItem, idItem, createDate) {
-        this.createCardElements(textItem, idItem, createDate);
+    constructor(idItem) {
+        this.createCardElements(idItem);
     }
 
-    createCardElements(textItem, idItem, createDate) {
+    createCardElements(idItem) {
         const card = document.createElement('div');
         	card.classList.add('card', 'column', 'col-xs-10', 'col-sm-9', 'col-md-7', 'col-lg-7', 'col-xl-6', 'col-5', 'col-mx-auto');
 					card.id = 'itemCard';
 					card.idItem = idItem;
+					console.log(idItem)
 				
         
         const cardBody = document.createElement('div');
@@ -23,8 +24,9 @@ class CreateItem {
         const itemText = document.createElement('input');
           itemText.classList.add('form-input', 'input-md');
           itemText.type = 'text';
-          itemText.id = 'itemText';
-          itemText.value = textItem;
+					itemText.id = 'itemText';
+						let textItem = JSON.parse(localStorage.getItem(idItem))
+          itemText.value = textItem.txtItem;
           itemText.disabled = true;
         
         //create btns
@@ -59,7 +61,8 @@ class CreateItem {
 					iconItemTime.classList.add('icon', 'icon-time');
 				const txtItemTime = document.createElement('span');
 					txtItemTime.classList.add('text-tiny');
-					txtItemTime.innerText = createDate;
+					const createDate = JSON.parse(localStorage.getItem(idItem))
+					txtItemTime.innerText = createDate.createDate;
 
 
         //add elements in box
@@ -172,9 +175,15 @@ function checkText() {
           }
         }
 
-        new CreateItem(addNewItemInput.value, idItem, createDate);
+        new CreateItem(idItem);
         addNewItemInput.value = "";
     }
+}
+
+//onload page
+window.onload = () => {
+	for(let i of Object.keys(localStorage))
+	new CreateItem(i)
 }
 
 //btn/enter add new item
@@ -182,14 +191,7 @@ addNewItemBtn.addEventListener('click', checkText)
 addNewItemInput.addEventListener('keydown', (event) => {
   if(event.key == 'Enter') checkText()})
 
-
-window.onload = () => {
-    // for (let i = 0 in localStorage.key){
-    //     localStorage.getItem(i, localStorage.key)
-    // }
-    //new CreateItem()
-}
-
+	
 //JS for style
 //check on empty input
 addNewItemInput.oninput = () => {
