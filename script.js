@@ -58,6 +58,7 @@ class CreateItem {
 				const iconItemTime = document.createElement('icon');
 					iconItemTime.classList.add('icon', 'icon-time');
 				const txtItemTime = document.createElement('span');
+					txtItemTime.classList.add('text-tiny')
 					let itmTime = JSON.parse(localStorage.getItem(idItem))
 					txtItemTime.innerText = itmTime.createDate
 
