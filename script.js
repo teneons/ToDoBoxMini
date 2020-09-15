@@ -3,16 +3,16 @@ let addNewItemBtn = document.getElementById('addNewItemBtn');
 
 
 class CreateItem {
-    constructor(textItem, idItem) {
-        this.createCardElements(textItem, idItem);
+    constructor(textItem, idItem, createDate) {
+        this.createCardElements(textItem, idItem, createDate);
     }
 
-    createCardElements(textItem, idItem) {
+    createCardElements(textItem, idItem, createDate) {
         const card = document.createElement('div');
         	card.classList.add('card', 'column', 'col-xs-10', 'col-sm-9', 'col-md-7', 'col-lg-7', 'col-xl-6', 'col-5', 'col-mx-auto');
 					card.id = 'itemCard';
 					card.idItem = idItem;
-
+				
         
         const cardBody = document.createElement('div');
         	cardBody.classList.add('card-body');
@@ -58,9 +58,8 @@ class CreateItem {
 				const iconItemTime = document.createElement('icon');
 					iconItemTime.classList.add('icon', 'icon-time');
 				const txtItemTime = document.createElement('span');
-					txtItemTime.classList.add('text-tiny')
-					let itmTime = JSON.parse(localStorage.getItem(idItem))
-					txtItemTime.innerText = itmTime.createDate
+					txtItemTime.classList.add('text-tiny');
+					txtItemTime.innerText = createDate;
 
 
         //add elements in box
@@ -153,7 +152,7 @@ function checkText() {
 						const statusDone = false;
 						const nDate = new Date();
 							const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-							const createDate = `${nDate.getHours()}:${nDate.getMinutes()} \t ${nDate.getDate()} ${monthNames[nDate.getMonth()]} ${nDate.getFullYear()}`
+							const createDate = `${nDate.getHours()}:${nDate.getMinutes()} ${nDate.getDate()} ${monthNames[nDate.getMonth()]} ${nDate.getFullYear()}`
             const itemObj = {txtItem: addNewItemInput.value, statusDone: statusDone, createDate: createDate};
         
         //set to LocSt
@@ -165,7 +164,7 @@ function checkText() {
           }
         }
 
-        new CreateItem(addNewItemInput.value, idItem);
+        new CreateItem(addNewItemInput.value, idItem, createDate);
         addNewItemInput.value = "";
     }
 }
