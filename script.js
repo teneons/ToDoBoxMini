@@ -131,8 +131,16 @@ class CreateItem {
         let item = JSON.parse(localStorage.getItem(id))
 
         if(item.statusDone == false) {
-          item.statusDone = true
-        } else item.statusDone = false
+					item.statusDone = true;
+					itemText.style.textDecoration = 'line-through';
+					itemText.style.backgroundColor = '#fff';
+					itemCard.style.backgroundColor = '#fff';
+        } else {
+					item.statusDone = false;
+					itemText.style.textDecoration = 'none';
+					itemText.style.backgroundColor = '#ECECEC';
+					itemCard.style.backgroundColor = '#ECECEC';
+				}
 
         let itemNew = JSON.stringify(item)
         try {
